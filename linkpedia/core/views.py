@@ -43,4 +43,8 @@ def cadastro(request):
     return render(request, 'cadastro_link.html', {'form': form})
 
 
+def listar(request):
+    links = LinkModel.objects.all()
+    return render(request, 'lista_links.html', {'links': links})
+
     
