@@ -94,7 +94,7 @@ Proteger todas essas funcionalidades para que apenas usuários logados tenham ac
 
 Ao final da Sprint 2, o sistema deverá conter um CRUD funcional de links em Django.
 
-Sprint 2: CRUD de Links (Concluída)
+## Sprint 2: CRUD de Links (Concluída)
 
 Nesta etapa, o desafio de desenvolver o cadastro de links com as operações completas de CRUD foi finalizado com sucesso, aplicando padronização visual e boas práticas do framework Django.
 Funcionalidades Implementadas:
@@ -140,6 +140,6 @@ O que foi testado:
 
 Foi mantido e superado o patamar de excelência exigido na Sprint 1. Abaixo está o relatório comprovando a  cobertura dos testes no projeto:
 
-Imagem: Cobertura atualizada de Testes do Projeto
+### Imagem: Cobertura atualizada de Testes do Projeto
 
 <img src="coverage_TDD.png">
