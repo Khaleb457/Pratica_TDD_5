@@ -1,9 +1,21 @@
 from django.test import TestCase
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 from core.models import LinkModel
+
+User = get_user_model()
 
 class ExclusaoLinkTest(TestCase):
     def setUp(self):
+        # Cria e loga o usuário
+        self.user = User.objects.create_user(
+            username='alunoteste',
+            email='teste@cps.sp.gov.br',
+            password='senha_secreta'
+        )
+        self.client.force_login(self.user)
+
+        # Cria o link para testar
         self.link = LinkModel.objects.create(
             titulo="Link a ser deletado",
             link="https://deletar.com"

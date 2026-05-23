@@ -1,9 +1,24 @@
 from django.test import TestCase
 from django.urls import reverse
 from core.models import LinkModel
+from django.contrib.auth import get_user_model
+
+# Pega o modelo de usuário padrão do projeto
+User = get_user_model() 
+
 
 class ListagemLinksTest(TestCase):
     def setUp(self):
+        # 2. Cria um usuário no banco de testes
+        self.user = User.objects.create_user(
+            username='alunoteste',
+            email='teste@cps.sp.gov.br',
+            password='senha_secreta'
+        )
+        
+        # 3. Força o "navegador fantasma" a logar com esse usuário
+        self.client.force_login(self.user)
+
         self.link1 = LinkModel.objects.create(
             titulo="Google",
             link="https://google.com",

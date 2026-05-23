@@ -1,9 +1,23 @@
 from django.test import TestCase
 from django.urls import reverse
 from core.models import LinkModel
+from django.contrib.auth import get_user_model
+
+# Pega o modelo de usuário padrão do projeto
+User = get_user_model() 
 
 class CadastroLinkTest(TestCase):
     def setUp(self):
+        # 2. Cria um usuário no banco de testes
+        self.user = User.objects.create_user(
+            username='alunoteste',
+            email='teste@cps.sp.gov.br',
+            password='senha_secreta'
+        )
+        
+        # 3. Força o "navegador fantasma" a logar com esse usuário
+        self.client.force_login(self.user)
+
         self.url = reverse('cadastro')
 
     def test_acesso_a_pagina_de_cadastro_retorna_status_200(self):
